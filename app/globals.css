@@ -1,0 +1,151 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-inter: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  @apply bg-white text-asphalt-black antialiased;
+  font-family: var(--font-inter);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+/* Custom scrollbar with smooth transitions */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-100;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-industrial-grey rounded-full;
+  transition: background-color 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-asphalt-black;
+}
+
+/* Utility classes */
+.container-custom {
+  @apply mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl;
+}
+
+.section-padding {
+  @apply py-12 md:py-16 lg:py-20;
+}
+
+/* Button styles with smooth transitions */
+.btn-primary {
+  @apply bg-safety-orange text-white px-6 py-3 rounded-lg font-semibold 
+         hover:bg-[#EE6E4D]/90 transition-all duration-300 ease-out
+         focus:outline-none focus:ring-2 focus:ring-safety-orange focus:ring-offset-2
+         active:scale-95 transform;
+}
+
+.btn-secondary {
+  @apply bg-deep-blue text-white px-6 py-3 rounded-lg font-semibold 
+         hover:bg-[#20201F]/90 transition-all duration-300 ease-out
+         focus:outline-none focus:ring-2 focus:ring-deep-blue focus:ring-offset-2
+         active:scale-95 transform;
+}
+
+.btn-outline {
+  @apply border-2 border-deep-blue text-deep-blue px-6 py-3 rounded-lg font-semibold 
+         hover:bg-deep-blue hover:text-white transition-all duration-300 ease-out
+         focus:outline-none focus:ring-2 focus:ring-deep-blue focus:ring-offset-2
+         active:scale-95 transform;
+}
+
+/* Card styles with smooth transitions */
+.card {
+  @apply bg-white rounded-lg shadow-md hover:shadow-xl transition-all duration-300 ease-out
+         border border-gray-100;
+  transform: translateY(0);
+  transition: transform 0.3s ease-out, box-shadow 0.3s ease-out, border-color 0.3s ease-out;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+}
+
+/* Mobile touch targets */
+@media (max-width: 767px) {
+  .btn-primary,
+  .btn-secondary,
+  .btn-outline {
+    @apply min-h-[44px] min-w-[44px];
+  }
+}
+
+
+/* Smooth transitions for all interactive elements */
+a, button {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Smooth image loading */
+img {
+  transition: opacity 0.3s ease-in-out;
+}
+
+/* Smooth link hover effects */
+a {
+  transition: color 0.3s ease-out, transform 0.2s ease-out;
+}
+
+/* Smooth focus transitions */
+*:focus-visible {
+  transition: outline-offset 0.2s ease-out;
+}
+
+/* Google Translate Widget Styles */
+#google_translate_element {
+  display: none !important;
+}
+
+#google_translate_element .goog-te-banner-frame {
+  display: none !important;
+}
+
+body {
+  top: 0 !important;
+}
+
+.goog-te-banner-frame.skiptranslate {
+  display: none !important;
+}
+
+/* Hide Google Translate branding and default UI */
+.goog-logo-link,
+.goog-te-gadget-icon,
+.goog-te-gadget {
+  display: none !important;
+}
+
+.goog-te-gadget-simple {
+  background-color: transparent !important;
+  border: none !important;
+  font-size: 12px !important;
+  display: none !important;
+}
+
+/* Hide the default Google Translate dropdown */
+.goog-te-combo {
+  display: none !important;
+}
+
