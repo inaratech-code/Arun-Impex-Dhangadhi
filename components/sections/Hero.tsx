@@ -11,8 +11,8 @@ export default function Hero() {
       {/* Hero Image */}
       <div className="absolute inset-0">
         <Image
-          src="/images/DRUM-PACKING.webp"
-          alt="Industrial fuel drums - Arun Impex"
+          src="/images/Impex.jpeg"
+          alt="Arun Impex - Industrial fuel and bitumen supplier"
           fill
           className="object-cover"
           priority
