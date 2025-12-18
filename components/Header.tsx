@@ -34,7 +34,7 @@ export default function Header() {
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-out ${
         isScrolled
           ? 'bg-white shadow-lg'
-          : 'bg-white/95 backdrop-blur-sm'
+          : 'bg-transparent'
       }`}
     >
       <nav className="container-custom">
@@ -64,7 +64,9 @@ export default function Header() {
                   className={`relative font-medium transition-all duration-300 ease-out ${
                     isActive
                       ? 'text-safety-orange'
-                      : 'text-asphalt-black hover:text-safety-orange'
+                      : isScrolled
+                      ? 'text-asphalt-black hover:text-safety-orange'
+                      : 'text-white hover:text-safety-orange'
                   }`}
                 >
                   {item.name}
@@ -90,7 +92,9 @@ export default function Header() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="lg:hidden p-2 text-asphalt-black focus:outline-none focus:ring-2 focus:ring-safety-orange rounded-md"
+            className={`lg:hidden p-2 focus:outline-none focus:ring-2 focus:ring-safety-orange rounded-md transition-colors ${
+              isScrolled ? 'text-asphalt-black' : 'text-white'
+            }`}
             aria-label="Toggle menu"
             aria-expanded={isOpen}
           >
@@ -112,7 +116,7 @@ export default function Header() {
               transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
               className="lg:hidden overflow-hidden"
             >
-              <div className="py-4 space-y-2 border-t border-gray-200">
+              <div className={`py-4 space-y-2 border-t ${isScrolled ? 'border-gray-200' : 'border-white/20'}`}>
                 {navigation.map((item) => {
                   const isActive = pathname === item.href
                   return (
@@ -123,7 +127,9 @@ export default function Header() {
                       className={`block px-4 py-3 rounded-lg font-medium transition-colors ${
                         isActive
                           ? 'bg-safety-orange/10 text-safety-orange'
-                          : 'text-asphalt-black hover:bg-gray-100'
+                          : isScrolled
+                          ? 'text-asphalt-black hover:bg-gray-100'
+                          : 'text-white hover:bg-white/10'
                       }`}
                     >
                       {item.name}
