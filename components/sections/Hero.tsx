@@ -14,14 +14,15 @@ export default function Hero() {
           src="/images/Impex.jpeg"
           alt="Arun Impex - Industrial fuel and bitumen supplier"
           fill
-          className="object-cover"
+          className="object-cover object-center"
+          style={{ objectPosition: 'center center' }}
           priority
           quality={90}
         />
       </div>
       
       {/* Dark Overlay for text readability */}
-      <div className="absolute inset-0 bg-gradient-to-br from-asphalt-black/80 via-asphalt-black/70 to-asphalt-black/80"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-asphalt-black/75 via-asphalt-black/65 to-asphalt-black/75"></div>
 
       <div className="container-custom relative z-10">
         <div className="max-w-4xl mx-auto text-center text-white">
