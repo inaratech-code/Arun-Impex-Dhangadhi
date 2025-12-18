@@ -2,6 +2,10 @@
 
 A modern, professional, and fully responsive website for Arun Impex, a leading supplier of industrial fuels and bitumen products.
 
+## About
+
+Arun Impex is a modern, responsive corporate website built to represent an industrial supplier of Bitumen, Bitumen Emulsion, and Furnace Oil. The website is designed to establish trust, showcase products clearly, and generate business inquiries from infrastructure and industrial clients.
+
 ## Features
 
 - **Modern Design**: Professional industrial theme with clean typography and smooth animations
@@ -125,4 +129,3 @@ npm start
 ## License
 
 © 2025 Arun Impex & Inara Tech. All rights reserved.
-
