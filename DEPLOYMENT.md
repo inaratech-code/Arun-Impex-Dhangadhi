@@ -25,10 +25,12 @@ This guide will help you deploy the Arun Impex website to Cloudflare Pages with 
 Use these build settings:
 
 - **Framework preset**: `Next.js`
-- **Build command**: `npm run build`
+- **Build command**: `npm run build:cloudflare` (this cleans cache before building)
 - **Build output directory**: `.next`
 - **Root directory**: `/` (leave as default)
 - **Environment variables**: (add any if needed)
+
+**Note**: The `build:cloudflare` command removes webpack cache files that exceed Cloudflare's 25 MiB file size limit.
 
 ### Step 3: Configure Custom Domain
 
@@ -76,6 +78,12 @@ wrangler pages deploy .next --project-name=arun-impex
 ```
 
 ## Troubleshooting
+
+### File Size Error (25 MiB limit)
+If you see an error about files exceeding 25 MiB:
+- The build command `npm run build:cloudflare` should automatically clean cache files
+- If the issue persists, add this to your build command: `rm -rf .next/cache && npm run build`
+- Ensure `.next/cache/` is in your `.gitignore`
 
 ### Build Fails
 - Check build logs in Cloudflare dashboard
