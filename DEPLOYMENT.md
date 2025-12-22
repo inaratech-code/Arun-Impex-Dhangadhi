@@ -24,13 +24,16 @@ This guide will help you deploy the Arun Impex website to Cloudflare Pages with 
 
 Use these build settings:
 
-- **Framework preset**: `Next.js`
+- **Framework preset**: `None` or `Static HTML` (since we're using static export)
 - **Build command**: `npm run build:cloudflare` (this cleans cache before building)
-- **Build output directory**: `.next`
+- **Build output directory**: `out` (static export creates files in `out` folder)
 - **Root directory**: `/` (leave as default)
 - **Environment variables**: (add any if needed)
 
-**Note**: The `build:cloudflare` command removes webpack cache files that exceed Cloudflare's 25 MiB file size limit.
+**Note**: 
+- The project is configured for static export (`output: 'export'` in `next.config.mjs`)
+- The `build:cloudflare` command removes webpack cache files that exceed Cloudflare's 25 MiB file size limit
+- Images are set to `unoptimized: true` for static export compatibility
 
 ### Step 3: Configure Custom Domain
 
@@ -73,8 +76,8 @@ npm install -g wrangler
 # Login to Cloudflare
 wrangler login
 
-# Deploy
-wrangler pages deploy .next --project-name=arun-impex
+# Deploy (for static export, use 'out' directory)
+wrangler pages deploy out --project-name=arun-impex
 ```
 
 ## Troubleshooting

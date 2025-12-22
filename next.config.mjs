@@ -1,11 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: 'export', // This creates a static export
   images: {
+    unoptimized: true, // Required for static export
     formats: ['image/avif', 'image/webp'],
   },
-  // Disable webpack cache to reduce build size for Cloudflare Pages
   webpack: (config, { dev, isServer }) => {
-    // Disable persistent cache for Cloudflare Pages compatibility (25 MiB file limit)
     if (!dev) {
       config.cache = false
     }
